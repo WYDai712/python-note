@@ -53,3 +53,64 @@
 11：list：如果要取最后一个元素，除了计算索引位置外，还可以用-1做索引，直接获取最后一个元素：
     >>> classmates[-1]
     'Tracy'
+    以此类推，可以获取倒数第2个、倒数第3个：
+    >>> classmates[-2]
+    'Bob'
+    >>> classmates[-3]
+    'Michael'
+12：list元素也可以是另一个list，比如：
+    >>> s = ['python', 'java', ['asp', 'php'], 'scheme']
+    >>> len(s)
+    4
+13：只有1个元素的tuple定义时必须加一个逗号,，来消除歧义：
+    >>> t = (1,)
+    >>> t
+    (1,)
+14：更改元组
+    元组是不可变的，也就是说，元组中的元素在被赋值后不能改变。
+    但是，如果元素本身是一个可变数据类型的列表，那么其嵌套项可以被改变。
+    >>> tup = (6, 'Python', ['P', 'y', 't', 'h', 'o', 'n'])
+    >>> 
+    >>> tup[0] = 8  # 不能改变元素
+    ...
+    TypeError: 'tuple' object does not support item assignment
+    >>> 
+    >>> tup[2][3] = 's'  # 可变的元素可以被改变
+    >>> tup
+    (6, 'Python', ['P', 'y', 't', 's', 'o', 'n'])
+
+    删除元组
+    如上所述，不能更改元组中的元素，这也意味着无法删除元组中的元素。    
+    但是，使用关键字 del 可以删除整个元组。   
+    >>> tup = ('P', 'y', 't', 'h', 'o', 'n')
+    >>> 
+    >>> del tup[2]  # 无法删除元素
+    ...
+    TypeError: 'tuple' object doesn't support item deletion
+    >>> 
+    >>> del tup  # 可以删除整个元组
+    >>> tup
+    ...
+    NameError: name 'tup' is not defined
+
+    列表和元组互转
+    列表和元组之间可以进行相互转换，分别使用 list() 和 tuple() 实现：
+    >>> tup = ('P', 'y', 't', 'h', 'o', 'n')
+    >>> listx = list(tup)
+    >>> listx
+    ['P', 'y', 't', 'h', 'o', 'n']
+    >>> 
+    >>> l = ['H', 'e', 'l', 'l', 'o']
+    >>> tupx = tuple(l)
+    >>> tupx
+    ('H', 'e', 'l', 'l', 'o')
+    既然可以互转，那么要改变元组，可以先将其转化为列表，对列表进行更改，然后再将列表转换为元组。
+    例如，删除元组中的元素：
+    >>> tup = ('P', 'y', 't', 'h', 'o', 'n')
+    >>> listx = list(tup)  # 将元组转换为列表
+    >>> listx.remove('h')  # 删除列表中的元素
+    >>> tup = tuple(listx)  # 再将列表转换为元组
+    >>> tup
+    ('P', 'y', 't', 'o', 'n')
+    注意： 元组本身是不可变的。这里说的并不是传统意义的改变，相当于元组的重新赋值。
+15：
