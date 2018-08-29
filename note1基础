@@ -136,4 +136,7 @@
      File "<stdin>", line 1, in <module>
     ValueError: invalid literal for int() with base 10: 'abc'
     原来int()函数发现一个字符串并不是合法的数字时就会报错，程序就退出了。
-16：
+16：如果要计算1-100的整数之和，从1写到100有点困难，幸好Python提供一个range()函数，可以生成一个整数序列，再通过list()函数可以转换为list。比如range(5)生成的序列是从0开始小于5的整数：
+    >>> list(range(5))
+    [0, 1, 2, 3, 4]
+    range(101)就可以生成0-100的整数序列
